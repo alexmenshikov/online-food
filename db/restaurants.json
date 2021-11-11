@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Телебистро",
+    "time_of_delivery": 40,
+    "stars": 4.9,
+    "price": 900,
+    "kitchen": "Европейская кухня",
+    "image": "images/restaurants/telebistro.jpg",
+    "products": "telebistro.json"
+  },
+  {
+    "name": "Bo",
+    "time_of_delivery": 35,
+    "stars": 4.8,
+    "price": 1000,
+    "kitchen": "Вьетнамская кухня",
+    "image": "images/restaurants/bo.jpg",
+    "products": "bo.json"
+  },
+  {
+    "name": "Pho Fighters",
+    "time_of_delivery": 27,
+    "stars": 4.7,
+    "price": 850,
+    "kitchen": "Паназиатская кухня",
+    "image": "images/restaurants/phoFighters.jpg",
+    "products": "phoFighters.json"
+  },
+  {
+    "name": "Goodman",
+    "time_of_delivery": 40,
+    "stars": 4.9,
+    "price": 1250,
+    "kitchen": "Европейская кухня",
+    "image": "images/restaurants/goodman.jpg",
+    "products": "goodman.json"
+  },
+  {
+    "name": "Высота 5642",
+    "time_of_delivery": 75,
+    "stars": 4.9,
+    "price": 1400,
+    "kitchen": "Грузинская кухня",
+    "image": "images/restaurants/visota.jpg",
+    "products": "visota.json"
+  },
+  {
+    "name": "Гоголь-Моголь",
+    "time_of_delivery": 45,
+    "stars": 4.8,
+    "price": 1500,
+    "kitchen": "Кофейня, пироги",
+    "image": "images/restaurants/gogol-mogol.jpg",
+    "products": "gogol-mogol.json"
+  }
+]

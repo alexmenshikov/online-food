@@ -1,0 +1,80 @@
+@media screen and (min-width: 1921px) {
+
+}
+
+//  1200px - 1229px
+@media screen and (max-width: 1229px) {
+
+}
+
+//  1024px - 1199px
+@media screen and (max-width: 1199px) {
+
+}
+
+//  768px - 1023px
+@media screen and (max-width: 1023px) {
+
+}
+
+//  561px - 767px
+@media screen and (max-width: 767px) {
+
+}
+
+//  480px - 560px
+@media screen and (max-width: 560px) {
+    .header {
+        &__wrapper {
+            align-items: flex-start;
+        }
+    }
+
+    .action {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .cart, .logout {
+        margin-top: 10px;
+        margin-right: 5px;
+    }
+    //
+    //.logout {
+    //    margin-left: 0;
+    //}
+    //
+    //.action {
+    //    &__wrapper {
+    //        z-index: 4;
+    //        display: flex;
+    //        position: fixed;
+    //        width: 200px;
+    //        height: 100%;
+    //        top: 0;
+    //        right: 0;
+    //        background-color: $color-bg;
+    //        flex-direction: column;
+    //        align-items: center;
+    //        padding: 70px 0 0 0;
+    //        transform: translateX(300px);
+    //        transition: all 0.3s linear;
+    //
+    //        &.open {
+    //            transform: translateX(0);
+    //        }
+    //    }
+    //}
+}
+
+//  480px - 499px
+@media screen and (max-width: 499px) {
+
+}
+
+//  320px - 479px
+@media screen and (max-width: 479px) {
+    .container {
+        padding: 0 10px;
+    }
+}

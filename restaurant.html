@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- encoding -->
+    <meta charset="UTF-8"/>
+
+    <!-- title -->
+    <title>Burger club</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="css/slick.css"/>
+    <link rel="stylesheet" href="css/slick-theme.css"/>
+    <link rel="stylesheet" href="css/main.min.css"/>
+
+    <!-- mobile support -->
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+
+    <!-- favicon -->
+    <!--    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>-->
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!-- scripts -->
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js" defer></script>
+    <script src="js/slick.min.js" defer></script>
+    <script src="js/main.min.js" defer></script>
+    <script src="js/menu.min.js" defer></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <a href="index.html" class="logo">
+                    <span>Online</span>Еда
+                </a>
+
+                <div class="action">
+                    <span class="user-name"></span>
+
+                    <div class="login">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <g id="about">
+                                <path d="M16,16A7,7,0,1,0,9,9,7,7,0,0,0,16,16ZM16,4a5,5,0,1,1-5,5A5,5,0,0,1,16,4Z"/>
+                                <path d="M17,18H15A11,11,0,0,0,4,29a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1A11,11,0,0,0,17,18ZM6.06,28A9,9,0,0,1,15,20h2a9,9,0,0,1,8.94,8Z"/>
+                            </g>
+                        </svg>
+                        <span class="login__text">Войти</span>
+                    </div>
+
+                    <div class="logout">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <style>.cls-1 {
+                                    fill: none;
+                                    stroke: #000;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-width: 2px;
+                                }</style>
+                            </defs>
+                            <g id="logout">
+                                <line class="cls-1" x1="15.92" x2="28.92" y1="16" y2="16"/>
+                                <path d="M23.93,25v3h-16V4h16V7h2V3a1,1,0,0,0-1-1h-18a1,1,0,0,0-1,1V29a1,1,0,0,0,1,1h18a1,1,0,0,0,1-1V25Z"/>
+                                <line class="cls-1" x1="28.92" x2="24.92" y1="16" y2="20"/>
+                                <line class="cls-1" x1="28.92" x2="24.92" y1="16" y2="12"/>
+                                <line class="cls-1" x1="24.92" x2="24.92" y1="8.09" y2="6.09"/>
+                                <line class="cls-1" x1="24.92" x2="24.92" y1="26" y2="24"/>
+                            </g>
+                        </svg>
+                        <span>Выйти</span>
+                    </div>
+
+                    <div class="cart">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                            <path fill-rule="evenodd"
+                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                        </svg>
+                        <span>Корзина</span>
+                        <div class="cart__count">
+                            <span>0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <!--            <div class="slider swiper">-->
+            <!--                <div class="slider__wrapper swiper-wrapper">-->
+            <!--                    <div class="slider__item swiper-slide">-->
+            <!--                        <img src="./images/slider/duna.jpg" alt="duna">-->
+            <!--                    </div>-->
+
+            <!--                    <div class="slider__item swiper-slide">-->
+            <!--                        <img src="./images/slider/jacob.jpg" alt="jacob">-->
+            <!--                    </div>-->
+
+            <!--                    <div class="slider__item swiper-slide">-->
+            <!--                        <img src="./images/slider/kosa.jpg" alt="kosa">-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="swiper-button-prev"></div>-->
+            <!--                <div class="swiper-button-next"></div>-->
+            <!--            </div>-->
+        </div>
+
+        <div class="food">
+            <div class="container">
+                <h2 class="menu__title"></h2>
+                <div class="menu__info">
+                    <div class="menu__info-rating"></div>
+                    <div class="menu__info-price"></div>
+                    <div class="menu__info-category"></div>
+                </div>
+                <div class="food__wrapper">
+                    <div class="food__items">
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/eggs.jpg" alt="eggs">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">Панкейки с кленовым сиропом, беконом и яйцом</div>
+                                <div class="food__card-description">
+                                    Мука, молоко, соль, сахар, бекон, яйцо, кленовый сироп, сливочное масло
+                                </div>
+                                <div class="food__card-weight">
+                                    310 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">400 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/omelette.jpg" alt="omelette">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Омлет с прошутто, томатами и моцареллой
+                                </div>
+                                <div class="food__card-description">
+                                    Яйца, молоко, сливочное масло, соль, перец, томаты, сыр моцарелла, прошутто
+                                </div>
+                                <div class="food__card-weight">
+                                    240 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">490 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/pancake.jpg" alt="pancake">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Банановые панкейки с домашней нутеллой
+                                </div>
+                                <div class="food__card-description">
+                                    Мука, молоко, йогурт, яйца, сахар сливочное масло, соль, банан, шоколад молочный,
+                                    сливки, орех пекан, кленовый сироп
+                                </div>
+                                <div class="food__card-weight">
+                                    310 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">520 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/syrniki.jpg" alt="syrniki">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Запеченные сырники с ягодным соусом
+                                </div>
+                                <div class="food__card-description">
+                                    Творожные сырники с домашним ягодным соусом из малины, клубники и смородины и нежная
+                                    цитрусовая сметана
+                                </div>
+                                <div class="food__card-weight">
+                                    220 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">450 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/sandwich.jpg" alt="sandwich">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Сэндвич с пастрами
+                                </div>
+                                <div class="food__card-description">
+                                    Хлеб цельнозерновой, соус горчичный, пастрами, сыр чеддер, маринованные огурцы
+                                </div>
+                                <div class="food__card-weight">
+                                    250 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">580 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/shakshuka.jpg" alt="shakshuka">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Шакшука
+                                </div>
+                                <div class="food__card-description">
+                                    Яйца куриные, томатный соус, томаты свежие, перец болгарский печеный, лук резанец,
+                                    кинза острое масло, специи: кориандр, кумин, хмели-сунели, перец молотый, соль, чили
+                                    сушеный, чеснок гранулированный, оливковое масло
+                                </div>
+                                <div class="food__card-weight">
+                                    240 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">490 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/porridge.jpg" alt="porridge">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Каша Овсяная с домашним ягодным соусом
+                                </div>
+                                <div class="food__card-description">
+                                    Овсяные хлопья, молоко, вода, соль, сахар, масло сливочное, ягодный соус, банан
+                                </div>
+                                <div class="food__card-weight">
+                                    320 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">380 &#8381;</div>
+                                    <div class="food__card-cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                            <path fill-rule="evenodd"
+                                                  d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="food__card">
+                            <div class="food__card-img">
+                                <img src="images/restaurants/telebistro/bruschetta.jpg" alt="bruschetta">
+                            </div>
+                            <div class="food__text">
+                                <div class="food__card-title">
+                                    Брускетта с авокадо и лососем
+                                </div>
+                                <div class="food__card-description">
+                                    Хлеб белый ремесленный, соус креметте-унаги, авокадо, помидоры, лосось слабой соли, яйцо пашот
+                                </div>
+                                <div class="food__card-weight">
+                                    350 г
+                                </div>
+                                <div class="food__card-info">
+                                    <div class="food__card-price">720 &#8381;</div>
+                                    <div class="food__card-cart">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                                                                    <path fill-rule="evenodd"
+                                                                                          d="M33.5 38.25a.75.75 0 0 1 0 1.5.75.75 0 0 1 0-1.5zm-3 .75c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM9 39.891a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm0-3.9c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm27.953-10.715l-5.166.163.205-5.939h6.575l-.235 4.381c-.052.755-.66 1.354-1.379 1.395zm-21.05-1.439l-.932-4.337h6.53v6.264l-5.49.173c.057-.695.03-1.4-.108-2.1zM19 13h2.5v5h-6.853l-1.224-5.696C14.791 12.696 16.61 13 19 13zm11.49 6.5l-.206 5.986-7.284.23V19.5h7.49zm.225-6.5l-.173 5H23v-5h7.715zm7.933 5h-6.604l.172-5h6.701l-.269 5zm2.941-7.532A1.5 1.5 0 0 0 40.5 10H19c-3.474 0-5.422-.717-6.328-1.187l-.085-.395A3.077 3.077 0 0 0 9.595 6H6v3l3.653.048 3.312 15.392a4.502 4.502 0 0 1-.803 3.551l-1.836 2.361a3.478 3.478 0 0 0-.382 3.686A3.479 3.479 0 0 0 13.09 36h23.36v-3H13.09a.479.479 0 0 1-.45-.28.482.482 0 0 1 .053-.527l1.852-2.381c.202-.269.378-.554.541-.845l21.997-.694a4.512 4.512 0 0 0 4.243-4.21l.672-12.482a1.503 1.503 0 0 0-.409-1.113z"/>
+                                                                                </svg>
+<!--                                        <svg id="Layer_1" version="1.1"-->
+<!--                                             viewBox="0 0 512 512" xml:space="preserve"-->
+<!--                                             xmlns="http://www.w3.org/2000/svg"-->
+<!--                                             xmlns:xlink="http://www.w3.org/1999/xlink">-->
+<!--                                            <path class="st0" d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z" fill="#232323"/>-->
+<!--                                        </svg>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal modal-auth">
+            <div class="modal-login__wrapper">
+                <div class="modal__content">
+                    <div class="modal__content-close">
+                        <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Icons" stroke="none" stroke-width="1" fill="#232323" fill-rule="evenodd"
+                               stroke-linecap="round">
+                                <g id="24-px-Icons" transform="translate(-364.000000, -124.000000)" stroke="#232323">
+                                    <g id="ic_cancel" transform="translate(360.000000, 120.000000)">
+                                        <g id="cross">
+                                            <g transform="translate(5.000000, 5.000000)" stroke-width="2">
+                                                <path d="M0,0 L14.1421356,14.1421356" id="Line"></path>
+                                                <path d="M14,0 L1.77635684e-15,14" id="Line"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="modal__content-title">
+                        Добро пожаловать
+                    </div>
+                    <form id="login-form" class="modal-auth">
+                        <label class="modal-auth__label">
+                            <span>Логин</span>
+                            <input id="login" type="text" class="modal-auth__input">
+                        </label>
+                        <label class="modal-auth__label">
+                            <span>Пароль</span>
+                            <input id="password" type="password" class="modal-auth__input">
+                        </label>
+
+                        <div class="modal-auth__footer">
+                            <button class="modal-auth__button" type="submit">Войти</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+</div>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/main.min.js"></script>
+</body>
+</html>

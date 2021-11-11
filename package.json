@@ -1,0 +1,34 @@
+{
+	"name": "site-realization-lesson-1",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alexmenshikov/burger-club.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/alexmenshikov/burger-club/issues"
+	},
+	"homepage": "https://github.com/alexmenshikov/burger-club#readme",
+	"dependencies": {
+		"jquery": "^3.6.0"
+	},
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-concat-css": "^3.1.0",
+		"gulp-cssmin": "^0.2.0",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-jsmin": "^0.1.5",
+		"gulp-sass": "^5.0.0",
+		"node-sass": "^6.0.1",
+		"sass": "^1.41.0",
+		"swiper": "^7.2.0"
+	}
+}
