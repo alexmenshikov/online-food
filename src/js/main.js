@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // из файлы restaurants.json достаём данные о ресторанах
-        fetch("../db/restaurants.json")
+        fetch("../online-food/db/restaurants.json")
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data); // получим массив с объектами
