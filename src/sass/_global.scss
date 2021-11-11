@@ -218,8 +218,7 @@ body {
     }
 
     &__card {
-        background-color: rgba(245, 245, 245, .5);
-        //box-shadow: 0 2px 4px 0 rgba(33, 32, 31, 0.05);
+        background-color: $color-light-gray;
         border-radius: 16px;
         overflow: hidden;
         display: flex;
@@ -228,8 +227,7 @@ body {
         transition: box-shadow 0.3s linear;
 
         &:hover {
-            //box-shadow: 0 2px 4px 0 rgba(33, 32, 31, 0.25);
-            box-shadow: 0 2px 4px 0 rgba(33, 32, 31, 0.1);
+            box-shadow: 0 2px 4px 0 $color-shadow;
         }
 
         &-img {
@@ -567,5 +565,38 @@ body {
 
     &.open span:nth-child(3) {
         transform: rotate(-45deg);
+    }
+}
+
+// footer
+.footer {
+    padding: 30px 0;
+    background-color: $color-light-gray;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+
+        a {
+            width: 28px;
+            height: 28px;
+            margin-left: 15px;
+
+            svg {
+                width: 100%;
+                fill: $color-text;
+                transition: fill 0.3s linear;
+            }
+
+            svg:hover {
+                fill: $color-yellow-two;
+            }
+        }
     }
 }

@@ -1,10 +1,11 @@
 [
   {
     "id": "pp01",
-    "name": "Пицца Везувий",
-    "description": "Соус томатный, сыр «Моцарелла», ветчина, пепперони, перец «Халапенье», соус «Тобаско», томаты.",
-    "price": 545,
-    "image": "img/pizza-plus/pizza-vesuvius.jpg"
+    "name": "Панкейки с кленовым сиропом, беконом и яйцом",
+    "description": "Мука, молоко, соль, сахар, бекон, яйцо, кленовый сироп, сливочное масло",
+    "price": 425,
+    "weight": 310,
+    "image": "images/restaurants/telebistro/eggs.jpg"
   },
   {
     "id": "pp02",
@@ -18,6 +19,7 @@
     "name": "Пицца Оле-Оле",
     "description": "Соус томатный, сыр «Моцарелла», черри, маслины, зелень, майонез",
     "price": 440,
+    "weight": 310,
     "image": "img/pizza-plus/pizza-oleole.jpg"
   },
   {
@@ -25,6 +27,7 @@
     "name": "Пицца Плюс",
     "description": "Соус томатный, сыр «Моцарелла», сыр «Чеддер», томаты, пепперони, телятина, грибы, бекон, болгарский перец.",
     "price": 805,
+    "weight": 310,
     "image": "img/pizza-plus/pizza-plus.jpg"
   },
   {
@@ -32,6 +35,7 @@
     "name": "Пицца Гавайская",
     "description": "Соус томатный, сыр «Моцарелла», ветчина, ананасы",
     "price": 440,
+    "weight": 310,
     "image": "img/pizza-plus/pizza-hawaiian.jpg"
   },
   {
@@ -39,6 +43,7 @@
     "name": "Пицца Классика",
     "description": "Соус томатный, сыр «Моцарелла», сыр «Пармезан», ветчина, салями, грибы.",
     "price": 510,
+    "weight": 310,
     "image": "img/pizza-plus/pizza-classic.jpg"
   }
 ]
