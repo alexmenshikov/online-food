@@ -1,44 +1,50 @@
 [
   {
     "id": "pb01",
-    "name": "Пицца от Шеф-повара",
-    "description": "Сыр моцарелла, помидоры, салями, бекон, сыр пармезан, зелень, ветчина",
-    "price": 638,
-    "image": "img/pizza-burger/pizza-dacha.jpg"
+    "name": "Голубцы из индейки",
+    "description": "Индейка, пекинская капуста, соль, специи",
+    "price": 280,
+    "weight": 200,
+    "image": "images/restaurants/gogol-mogol/stuffed-cabbage.jpg"
   },
   {
     "id": "pb02",
-    "name": "Пицца Мясное ассорти",
-    "description": "Сыр моцарелла, фирменный соус, помидоры, куриная грудка, бекон, свинина, говядина, зелень",
-    "price": 693,
-    "image": "img/pizza-burger/pizza-meat.jpg"
+    "name": "Солянка грибная",
+    "description": "Капуста, лук, грибы, растительное масло",
+    "price": 270,
+    "weight": 250,
+    "image": "images/restaurants/gogol-mogol/hodgepodge.jpg"
   },
   {
     "id": "pb03",
-    "name": "Пицца Деревенская",
-    "description": "Сыр моцарелла, пицца соус, чеснок, сыр пармезан, шампиньоны, помидоры, зелень, лук, курица, бекон, ветчина, пепперони",
-    "price": 705,
-    "image": "img/pizza-burger/pizza-village.jpg"
+    "name": "Баклажан фаршированный овощами",
+    "description": "Баклажан, лук, помидор, перец, чеснок, сыр",
+    "price": 300,
+    "weight": 200,
+    "image": "images/restaurants/gogol-mogol/eggplant.jpg"
   },
   {
     "id": "pb04",
-    "name": "Пицца Цезарь",
-    "description": "Соус Цезарь, куриная грудка, сыр пармезан, моцарелла, гренки, помидоры, салат айсберг",
-    "price": 759,
-    "image": "img/pizza-burger/pizza-caesar.jpg"
+    "name": "Пирог с яблоком, вишней и чёрной смородиной",
+    "description": "Яблоко, вишня, чёрная смородина, сахар (23 см)",
+    "price": 795,
+    "weight": 1000,
+    "image": "images/restaurants/gogol-mogol/apple-pie.jpg"
   },
   {
     "id": "pb05",
-    "name": "Пицца Пепперони",
-    "description": "Сыр моцарелла, пицца соус, шампиньоны, пепперони",
-    "price": 475,
-    "image": "img/pizza-burger/pizza-pepperoni.jpg"
+    "name": "Пирог с сыром",
+    "description": "Сыр, яйцо, укроп",
+    "price": 885,
+    "weight": 1000,
+    "image": "images/restaurants/gogol-mogol/cheese-pie.jpg"
   },
   {
     "id": "pb06",
-    "name": "Пицца Дачная",
-    "description": "Сыр моцарелла, пицца соус, бекон, картофель фри, куриная грудка, помидоры, пепперони, ветчина, зелень",
-    "price": 649,
-    "image": "img/pizza-burger/pizza-dacha.jpg"
+    "name": "Пирог с капустой",
+    "description": "Капуста и специи",
+    "price": 595,
+    "weight": 1000,
+    "image": "images/restaurants/gogol-mogol/pie-cabbage.jpg"
   }
 ]

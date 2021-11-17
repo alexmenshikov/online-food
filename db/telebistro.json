@@ -1,7 +1,7 @@
 [
   {
     "id": "pp01",
-    "name": "Панкейки с кленовым сиропом, беконом и яйцом",
+    "name": "Панкейки",
     "description": "Мука, молоко, соль, сахар, бекон, яйцо, кленовый сироп, сливочное масло",
     "price": 425,
     "weight": 310,
@@ -9,41 +9,58 @@
   },
   {
     "id": "pp02",
-    "name": "Пицца Девичник",
-    "description": "Соус томатный, постное тесто, нежирный сыр, кукуруза, лук, маслины, грибы, помидоры, болгарский перец.",
-    "price": 450,
-    "image": "img/pizza-plus/pizza-girls.jpg"
+    "name": "Омлет с прошутто",
+    "description": "Яйца, молоко, сливочное масло, соль, перец, томаты, сыр моцарелла, прошутто",
+    "price": 490,
+    "weight": 240,
+    "image": "images/restaurants/telebistro/omelette.jpg"
   },
   {
     "id": "pp03",
-    "name": "Пицца Оле-Оле",
-    "description": "Соус томатный, сыр «Моцарелла», черри, маслины, зелень, майонез",
-    "price": 440,
+    "name": "Банановые панкейки",
+    "description": "Мука, молоко, йогурт, яйца, сахар сливочное масло, соль, банан, шоколад молочный, сливки, орех пекан, кленовый сироп",
+    "price": 520,
     "weight": 310,
-    "image": "img/pizza-plus/pizza-oleole.jpg"
+    "image": "images/restaurants/telebistro/pancake.jpg"
   },
   {
     "id": "pp04",
-    "name": "Пицца Плюс",
-    "description": "Соус томатный, сыр «Моцарелла», сыр «Чеддер», томаты, пепперони, телятина, грибы, бекон, болгарский перец.",
-    "price": 805,
-    "weight": 310,
-    "image": "img/pizza-plus/pizza-plus.jpg"
+    "name": "Запеченные сырники",
+    "description": "Творожные сырники с домашним ягодным соусом из малины, клубники и смородины и нежная цитрусовая сметана",
+    "price": 450,
+    "weight": 220,
+    "image": "images/restaurants/telebistro/syrniki.jpg"
   },
   {
     "id": "pp05",
-    "name": "Пицца Гавайская",
-    "description": "Соус томатный, сыр «Моцарелла», ветчина, ананасы",
-    "price": 440,
-    "weight": 310,
-    "image": "img/pizza-plus/pizza-hawaiian.jpg"
+    "name": "Сэндвич с пастрами",
+    "description": "Хлеб цельнозерновой, соус горчичный, пастрами, сыр чеддер, маринованные огурцы",
+    "price": 580,
+    "weight": 250,
+    "image": "images/restaurants/telebistro/sandwich.jpg"
   },
   {
     "id": "pp06",
-    "name": "Пицца Классика",
-    "description": "Соус томатный, сыр «Моцарелла», сыр «Пармезан», ветчина, салями, грибы.",
-    "price": 510,
-    "weight": 310,
-    "image": "img/pizza-plus/pizza-classic.jpg"
+    "name": "Шакшука",
+    "description": "Яйца куриные, томатный соус, томаты свежие, перец болгарский печеный, лук резанец, кинза острое масло, специи",
+    "price": 490,
+    "weight": 240,
+    "image": "images/restaurants/telebistro/shakshuka.jpg"
+  },
+  {
+    "id": "pp07",
+    "name": "Каша Овсяная",
+    "description": "Овсяные хлопья, молоко, вода, соль, сахар, масло сливочное, ягодный соус, банан",
+    "price": 380,
+    "weight": 320,
+    "image": "images/restaurants/telebistro/porridge.jpg"
+  },
+  {
+    "id": "pp08",
+    "name": "Брускетта",
+    "description": "Хлеб белый ремесленный, соус креметте-унаги, авокадо, помидоры, лосось слабой соли, яйцо пашот",
+    "price": 720,
+    "weight": 350,
+    "image": "images/restaurants/telebistro/bruschetta.jpg"
   }
 ]

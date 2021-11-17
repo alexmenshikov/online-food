@@ -308,6 +308,7 @@ body {
         padding: 30px 40px 35px;
         border-radius: 16px;
         position: relative;
+        margin: 0 15px;
 
         &-title {
             text-align: center;
@@ -320,8 +321,8 @@ body {
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 15px;
-            height: 15px;
+            width: 17px;
+            height: 17px;
             cursor: pointer;
         }
     }
@@ -372,6 +373,79 @@ body {
 
         &:hover {
             background-color: $color-bg;
+        }
+    }
+}
+
+// модальное окно корзины
+.modal-cart {
+
+    &-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+
+        &-title {
+            width: 500px;
+            font-size: 18px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        &-price {
+            font-size: 18px;
+            font-family: RobotoBold,sans-serif;
+            margin-right: 25px;
+        }
+    }
+
+    //&__item:not(:last-child) {
+    //    border-bottom: 1px solid $color-gray;
+    //    margin-bottom: 10px;
+    //}
+
+    &__item:nth-child(2n) {
+        background-color: $color-light-gray;
+        border-radius: 8px;
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-remove, &-add {
+            width: 25px;
+            height: 25px;
+            border: solid 1px $color-yellow-two;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        &-count {
+            width: 20px;
+            text-align: center;
+            margin: 0 10px;
+            font-size: 18px;
         }
     }
 }
@@ -431,7 +505,7 @@ body {
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        //justify-content: space-between;
         transition: box-shadow 0.3s linear;
 
         //&:hover {
@@ -452,7 +526,7 @@ body {
         &-title {
             font-family: RobotoBold, sans-serif;
             font-size: 18px;
-            height: 45px;
+            height: 44px;
             line-height: 22px;
             margin-bottom: 10px;
             overflow: hidden;
@@ -463,11 +537,11 @@ body {
 
         &-description {
             margin-bottom: 20px;
-            height: 60px;
+            height: 80px;
             line-height: 20px;
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
         }
 

@@ -1,44 +1,34 @@
 [
   {
     "id": "fb01",
-    "name": "Мясная",
-    "description": "Пицца соус, сыр Моцарелла, томат, куриное филе, пепперони, свинина, бекон",
-    "price": 685,
-    "image": "img/food-band/meet.jpg"
+    "name": "Суп Фо Бо",
+    "description": "Пряный говяжий бульон с рисовой лапшой и тонкими ломтиками говядины. Подаётся с ростками сои, тайским перцем чили, кинзой и лаймом",
+    "price": 450,
+    "weight": 630,
+    "image": "images/restaurants/phoFighters/fo-bo.jpg"
   },
   {
     "id": "fb02",
-    "name": "Маргарита",
-    "description": "Пицца соус, сыр Моцарелла, томат",
-    "price": 693,
-    "image": "img/food-band/margarita.jpg"
+    "name": "Суп Том-ям",
+    "description": "Креветки, куриный бульон, соус Том Ям, сыр Моцарелла, шампиньоны, капуста брокколи, томат",
+    "price": 490,
+    "weight": 600,
+    "image": "images/restaurants/phoFighters/tom-yam.jpg"
   },
   {
     "id": "fb03",
-    "name": "Пепперони",
-    "description": "Пицца соус, пепперони, сыр Моцарелла",
-    "price": 595,
-    "image": "img/food-band/pepperoni.jpg"
+    "name": "Капуста кимчи",
+    "description": "Остро приправленные ферментированные листья пекинской капусты",
+    "price": 240,
+    "weight": 150,
+    "image": "images/restaurants/phoFighters/kimchi.jpg"
   },
   {
     "id": "fb04",
-    "name": "Семь сыров",
+    "name": "Салат Нам дао",
     "description": "Сыр моцарелла, сыр эмменталь, соус сырный, сыр горгондзола, сыр чеддер, сыр креметте, сыр фетакса, сыр пармезан",
-    "price": 785,
-    "image": "img/food-band/seven-cheeses.jpg"
-  },
-  {
-    "id": "fb05",
-    "name": "Том Ям",
-    "description": "Креветки, куриное филе, соус Том Ям, сыр Моцарелла, шампиньоны, капуста брокколи, томат.",
-    "price": 695,
-    "image": "img/food-band/tom-yam.jpg"
-  },
-  {
-    "id": "fb06",
-    "name": "Норвежская",
-    "description": "Сливочный соус, соус манго-чили, сыр моцарелла, лук красный, перец болгарский, ломтики лосося, салат Айсберг",
-    "price": 875,
-    "image": "img/food-band/norwegian.jpg"
+    "price": 560,
+    "weight": 280,
+    "image": "images/restaurants/phoFighters/nam-dao.jpg"
   }
 ]

@@ -53,186 +53,179 @@
 //         menuAdaptive();
 //     });
 // }
-document.addEventListener("DOMContentLoaded", () => {
-    const auth = () => {
-        const body = document.querySelector("body"); // body для блокировки прокрутки
 
-        const loginBtn = document.querySelector(".login"); // кнопка войти
-        const logoutBtn = document.querySelector(".logout"); // кнопка выйти
-        const cartBtn = document.querySelector(".cart"); // кнопка корзины
-        const userName = document.querySelector(".user-name"); // имя пользователя
+const auth = () => {
+    const body = document.querySelector("body"); // body для блокировки прокрутки
+    const loginBtn = document.querySelector(".login"); // кнопка войти
+    const logoutBtn = document.querySelector(".logout"); // кнопка выйти
+    const cartBtn = document.querySelector(".cart"); // кнопка корзины
+    const userName = document.querySelector(".user-name"); // имя пользователя
 
-        const modalAuth = document.querySelector(".modal"); // модальное окно
+    const modalAuth = document.querySelector(".modal"); // модальное окно
 
-        const close = document.querySelector(".modal__content-close"); // кнопка закрыть
+    const close = document.querySelector(".modal__content-close"); // кнопка закрыть
 
-        const inputLogin = document.getElementById("login"); // поле логин
-        const inputPassword = document.getElementById("password"); // поле пароль
+    const inputLogin = document.getElementById("login"); // поле логин
+    const inputPassword = document.getElementById("password"); // поле пароль
 
-        const loginForm = document.getElementById("login-form"); // форма авторизации
+    const loginForm = document.getElementById("login-form"); // форма авторизации
 
-        // const actionWrapper = document.querySelector(".action__wrapper"); // выпадающее меню
+    // const actionWrapper = document.querySelector(".action__wrapper"); // выпадающее меню
 
-        // открываем модальное окно, при нажатии на кнопку войти
-        loginBtn.addEventListener('click', () => {
-            body.classList.add("block");
-            modalAuth.style.display = "flex";
-        })
+    // открываем модальное окно, при нажатии на кнопку войти
+    loginBtn.addEventListener('click', () => {
+        body.classList.add("block");
+        modalAuth.style.display = "flex";
+    })
 
-        // закрываем модальное окно при нажатии на крестик
-        close.addEventListener('click', () => {
-            body.classList.remove("block");
-            modalAuth.style.display = "none";
-        })
+    // закрываем модальное окно при нажатии на крестик
+    close.addEventListener('click', () => {
+        body.classList.remove("block");
+        modalAuth.style.display = "none";
+    })
 
-        // проверка полей авторизации
-        const validation = (user, login, password) => {
-            let flagLogin = false;
-            let flagPassword = false;
+    // проверка полей авторизации
+    const validation = (user, login, password) => {
+        let flagLogin = false;
+        let flagPassword = false;
 
-            if (user.login) {
-                login.classList.remove("error");
-                flagLogin = true;
-            } else {
-                login.classList.add("error");
-                flagLogin = false;
-            }
-
-            if (user.password) {
-                password.classList.remove("error");
-                flagPassword = true;
-            } else {
-                password.classList.add("error");
-                flagPassword = false;
-            }
-
-            return (flagLogin && flagPassword);
-        };
-
-        // действия при входе
-        const login = (user) => {
-            loginBtn.style.display = "none";
-            logoutBtn.style.display = "flex";
-            cartBtn.style.display = "flex";
-            userName.style.display = "flex";
-            userName.textContent = user.login;
-
-            modalAuth.style.display = "none";
-            body.classList.remove("block");
-
-            // вызываем чтобы убрать лишние кнопки
-            // burger();
+        if (user.login) {
+            login.classList.remove("error");
+            flagLogin = true;
+        } else {
+            login.classList.add("error");
+            flagLogin = false;
         }
 
-        // действия при выходе
-        const logout = () => {
-            loginBtn.style.display = "flex";
-            logoutBtn.style.display = "none";
-            cartBtn.style.display = "none";
-            userName.style.display = "none";
-            // actionWrapper.style.display = "none";
-            userName.textContent = "";
-
-            localStorage.removeItem("user");
-
-            // вызываем чтобы убрать лишние кнопки
-            // burger();
+        if (user.password) {
+            password.classList.remove("error");
+            flagPassword = true;
+        } else {
+            password.classList.add("error");
+            flagPassword = false;
         }
 
-        logoutBtn.addEventListener('click', () => {
-            logout();
-        })
-
-        // проверяем событие авторизации
-        loginForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const user = {
-                login: inputLogin.value.trim(),
-                password: inputPassword.value,
-            };
-
-            let flag = validation(user, inputLogin, inputPassword);
-
-            // если логин и пароль введены, заносим пользователя в localStorage
-            if (flag) {
-                localStorage.setItem("user", JSON.stringify(user));
-                login(user);
-            }
-        });
-
-        // проверяем, если в localStorage был пользователь, сразу его авторизируем
-        if (localStorage.getItem("user")) {
-            login(JSON.parse(localStorage.getItem("user")));
-        }
+        return (flagLogin && flagPassword);
     };
 
-    auth();
+    // действия при входе
+    const login = (user) => {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "flex";
+        cartBtn.style.display = "flex";
+        userName.style.display = "flex";
+        userName.textContent = user.login;
 
-// заполнение карточек с ресторанами
-    const restaurants = () => {
-        const restaurantsItems = document.querySelector(".restaurants__items");
+        modalAuth.style.display = "none";
+        body.classList.remove("block");
 
-        const modalAuth = document.querySelector(".modal"); // модальное окно
+        // вызываем чтобы убрать лишние кнопки
+        // burger();
+    }
 
-        const renderItems = (data) => {
-            data.forEach((item) => {
-                // реструктуризация
-                const {image, kitchen, name, price, products, stars, time_of_delivery} = item;
+    // действия при выходе
+    const logout = () => {
+        loginBtn.style.display = "flex";
+        logoutBtn.style.display = "none";
+        cartBtn.style.display = "none";
+        userName.style.display = "none";
+        // actionWrapper.style.display = "none";
+        userName.textContent = "";
 
-                const a = document.createElement("a");
+        localStorage.removeItem("user");
 
-                a.setAttribute("href", "/online-food/restaurant.html");
-                a.classList.add("restaurants__card");
+        // вызываем чтобы убрать лишние кнопки
+        // burger();
+    }
 
-                a.dataset.product = products;
+    logoutBtn.addEventListener('click', () => {
+        logout();
+    })
 
-                a.innerHTML = `
-                <div class="restaurants__card-img">
-                    <img src="${image}" alt="${name}">
-                </div>
-                <div class="restaurants__text">
-                    <div class="restaurants__card-heading">
-                        <div class="restaurants__card-title">${name}</div>
-                        <div class="restaurants__card-time">${time_of_delivery} мин</div>
-                    </div>
-                    <div class="restaurants__card-info">
-                        <div class="restaurants__card-rating">${stars}</div>
-                        <div class="restaurants__card-price">От ${price} &#8381;</div>
-                        <div class="restaurants__card-category">${kitchen}</div>
-                    </div>
-                </div>
-            `;
+    // проверяем событие авторизации
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-                a.addEventListener('click', (event) => {
-                    event.preventDefault();
-
-                    if (localStorage.getItem('user')) {
-                        localStorage.setItem(("restaurant"), JSON.stringify(item));
-                        window.location.href = "../online-food/restaurant.html";
-                    } else {
-                        modalAuth.style.display = "flex";
-                    }
-                })
-
-                restaurantsItems.append(a);
-            })
+        const user = {
+            login: inputLogin.value.trim(),
+            password: inputPassword.value,
         };
 
-        // из файлы restaurants.json достаём данные о ресторанах
-        fetch("../online-food/db/restaurants.json")
-            .then((response) => response.json())
-            .then((data) => {
-                // console.log(data); // получим массив с объектами
-                renderItems(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
-    restaurants();
+        let flag = validation(user, inputLogin, inputPassword);
 
-});
+        // если логин и пароль введены, заносим пользователя в localStorage
+        if (flag) {
+            localStorage.setItem("user", JSON.stringify(user));
+            login(user);
+        }
+    });
+
+    // проверяем, если в localStorage был пользователь, сразу его авторизируем
+    if (localStorage.getItem("user")) {
+        login(JSON.parse(localStorage.getItem("user")));
+    }
+};
+
+auth();
+
+const renderCart = () => {
+    const arrayItems = JSON.parse(localStorage.getItem("cart"));
+    const cartItems = document.querySelector(".modal-cart__items");
+
+    arrayItems.forEach((item) => {
+        const div = document.createElement("div");
+        div.classList.add("modal-cart__item");
+
+        // реструктуризация
+        const {id, name, price, count} = item;
+
+        console.log(`${name} ${price} ${count}`);
+
+        div.innerHTML = `
+            <div class="modal-cart__item-title">${name}</div>
+            <div class="modal-cart__item-price">${price} &#8381;</div>
+            <div class="modal-cart__action">
+                <div class="modal-cart__action-remove">-</div>
+                <div class="modal-cart__action-count">${count}</div>
+                <div class="modal-cart__action-add">+</div>
+            </div>
+        `;
+
+        cartItems.append(div);
+    });
+};
+
+const removeCart = () => {
+    const cartItems = document.querySelector(".modal-cart__items");
+    cartItems.innerHTML = ``;
+};
+
+const openCart = () => {
+    const body = document.querySelector("body"); // body для блокировки прокрутки
+    const cart = document.querySelector(".cart");
+    const modalCart = document.querySelector(".modal-cart");
+    const close = document.querySelector(".modal-cart-close"); // кнопка закрыть
+
+    // открываем модальное окно, при нажатии на кнопку корзина
+    cart.addEventListener('click', () => {
+        body.classList.add("block");
+        modalCart.style.display = "flex";
+
+        renderCart();
+    })
+
+    // закрываем модальное окно при нажатии на крестик
+    close.addEventListener('click', () => {
+        body.classList.remove("block");
+        modalCart.style.display = "none";
+
+        removeCart();
+    })
+
+
+};
+
+openCart();
 
 // const swiper = new Swiper('.swiper', {
 //     // Optional parameters

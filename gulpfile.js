@@ -47,19 +47,29 @@ function jsMenu() {
 		.pipe(dest("./js"));
 }
 
+function jsRestaurants() {
+	return src("./src/js/restaurants.js")
+		.pipe(jsmin())
+		.pipe(rename({ suffix: ".min" }))
+		.pipe(dest("./js"));
+}
+
 function watching() {
 	watch("./src/sass/*.scss", styles);
 	// watch("./src/*.html", html);
 	watch("./src/js/main.js", js);
 	watch("./src/js/menu.js", jsMenu);
+	watch("./src/js/restaurants.js", jsRestaurants);
 }
 
 exports.styles = styles;
 // exports.html = html;
 exports.js = js;
+exports.jsMenu = jsMenu;
+exports.jsRestaurants = jsRestaurants;
 exports.watching = watching;
 
-exports.default = parallel(styles, js, jsMenu, watching);
+exports.default = parallel(styles, js, jsMenu, jsRestaurants, watching);
 
 // exports.sass = function () {
 // 	return src("./sass/main.scss")
