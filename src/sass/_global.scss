@@ -434,7 +434,7 @@ body {
         &-remove, &-add {
             width: 25px;
             height: 25px;
-            border: solid 1px $color-yellow-two;
+            border: solid 1px $color-yellow;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -446,6 +446,50 @@ body {
             text-align: center;
             margin: 0 10px;
             font-size: 18px;
+        }
+    }
+
+    &__empty {
+        font-size: 18px;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    &__bottom {
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        &-sum {
+            margin-top: 15px;
+            font-size: 18px;
+            padding: 10px;
+            background-color: $color-yellow;
+            border-radius: 8px;
+            border: solid 1px $color-yellow;
+            margin-right: 10px;
+
+            span {
+                font-family: RobotoBold,sans-serif;
+            }
+        }
+
+        &-del {
+            margin-top: 15px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            border: solid 1px $color-yellow;
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s linear;
+
+            &:hover {
+                background-color: $color-yellow;
+            }
         }
     }
 }

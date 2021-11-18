@@ -168,38 +168,85 @@ const auth = () => {
 
 auth();
 
+// заполнение корзины
 const renderCart = () => {
     const arrayItems = JSON.parse(localStorage.getItem("cart"));
     const cartItems = document.querySelector(".modal-cart__items");
+    const cartContent = document.querySelector(".modal-cart__bottom");
 
-    arrayItems.forEach((item) => {
+    const delDishesBtn = document.querySelector(".modal-cart__bottom-del");
+
+    let sum = 0;
+
+    const item = document.createElement("div");
+    item.classList.add("modal-cart__bottom-item");
+
+    if(!arrayItems) {
         const div = document.createElement("div");
-        div.classList.add("modal-cart__item");
-
-        // реструктуризация
-        const {id, name, price, count} = item;
-
-        console.log(`${name} ${price} ${count}`);
-
-        div.innerHTML = `
-            <div class="modal-cart__item-title">${name}</div>
-            <div class="modal-cart__item-price">${price} &#8381;</div>
-            <div class="modal-cart__action">
-                <div class="modal-cart__action-remove">-</div>
-                <div class="modal-cart__action-count">${count}</div>
-                <div class="modal-cart__action-add">+</div>
-            </div>
-        `;
+        div.classList.add("modal-cart__empty");
+        div.innerText = "Купи покушать :)";
 
         cartItems.append(div);
-    });
+    } else {
+        arrayItems.forEach((item) => {
+            const div = document.createElement("div");
+            div.classList.add("modal-cart__item");
+
+            // реструктуризация
+            const {id, name, price, count} = item;
+
+            console.log(`${name} ${price} ${count}`);
+
+            div.innerHTML = `
+                <div class="modal-cart__item-title">${name}</div>
+                <div class="modal-cart__item-price">${price} &#8381;</div>
+                <div class="modal-cart__action">
+                    <div class="modal-cart__action-remove">-</div>
+                    <div class="modal-cart__action-count">${count}</div>
+                    <div class="modal-cart__action-add">+</div>
+                </div>
+            `;
+
+            sum = sum + (+price * +count);
+
+            cartItems.append(div);
+        });
+
+        item.innerHTML = `
+                <div class="modal-cart__bottom-sum">Сумма <span>${sum} &#8381;</span></div>
+                <div class="modal-cart__bottom-del">Очистить корзину</div>
+        `;
+
+        cartContent.append(item);
+        // delDishesBtn.addEventListener('click', () => {
+        //     delDishes();
+        // });
+    }
 };
 
+// очистка корзины, при закрытии
 const removeCart = () => {
     const cartItems = document.querySelector(".modal-cart__items");
     cartItems.innerHTML = ``;
+
+    const cartBottom = document.querySelector(".modal-cart__bottom");
+    cartBottom.innerHTML = ``;
 };
 
+// удаление блюд из корзины
+const delDishes = () => {
+    const body = document.querySelector("body"); // body для блокировки прокрутки
+    const modalCart = document.querySelector(".modal-cart");
+
+    localStorage.removeItem("cart");
+
+    body.classList.add("block");
+    modalCart.style.display = "flex";
+
+    // removeCart();
+};
+
+// открытие корзины
 const openCart = () => {
     const body = document.querySelector("body"); // body для блокировки прокрутки
     const cart = document.querySelector(".cart");
@@ -224,7 +271,6 @@ const openCart = () => {
 
 
 };
-
 openCart();
 
 // const swiper = new Swiper('.swiper', {
