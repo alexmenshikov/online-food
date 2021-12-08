@@ -17,6 +17,7 @@ menu();
 // при создание массива, проверим есть ли массив в localStorage или нет, если да, мы его добавим в массив, если нет, просто создадим пустой массив.
 const cartArray = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
+// добавление блюд в корзину
 const addCart = (cartItem) => {
     if(cartArray.some((item) => item.id === cartItem.id)) {
         cartArray.map((item) => {
@@ -30,6 +31,8 @@ const addCart = (cartItem) => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cartArray));
+
+    countingDish();
 };
 
 // заполнение карточек с блюдами

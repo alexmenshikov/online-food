@@ -168,6 +168,24 @@ const auth = () => {
 
 auth();
 
+const countingDish = () => {
+    const cartCount = document.querySelector(".cart__count");
+    const cartSpan = cartCount.querySelector("span");
+
+    const cart = JSON.parse(localStorage.getItem("cart"));
+
+    let sumCount = 0;
+
+    if(cart) {
+        cart.forEach((item) => {
+            sumCount += Number(item.count);
+        });
+    }
+
+    cartSpan.innerText = sumCount;
+};
+countingDish();
+
 // заполнение корзины
 const renderCart = () => {
     const arrayItems = JSON.parse(localStorage.getItem("cart"));
@@ -184,7 +202,7 @@ const renderCart = () => {
     if(!arrayItems) {
         const div = document.createElement("div");
         div.classList.add("modal-cart__empty");
-        div.innerText = "Купи покушать :)";
+        div.innerText = "Ой, тут пока пусто";
 
         cartItems.append(div);
     } else {
