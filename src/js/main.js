@@ -158,6 +158,11 @@ const editPositionCart = (arrayCart) => {
     const cartItem = document.querySelectorAll(".modal-cart__item");
     // const add = document.querySelector(".modal-cart__action-add");
     // const remove = document.querySelector(".modal-cart__action-remove");
+    const sumHTML = document.querySelector(".modal-cart__bottom-sum");
+    const sumHTMLspan = sumHTML.querySelector("span");
+    // console.log(sumHTMLspan);
+
+    let sumPrice = 0;
 
     cartItem.forEach((item) => {
         const add = item.querySelector(".modal-cart__action-add");
@@ -165,11 +170,14 @@ const editPositionCart = (arrayCart) => {
         const itemHTML = item.querySelector(".modal-cart__item-title").innerText;
 
         add.addEventListener('click', () => {
+            sumPrice = 0;
+
             if (arrayCart.some((elem) => elem.name === itemHTML)) {
                 arrayCart.map((elem) => {
                     if (elem.name === itemHTML) {
                         elem.count++;
                         // console.log(`Добавил ${elem.name}`);
+                        item.querySelector(".modal-cart__action-count").innerHTML = elem.count;
 
                     }
 
@@ -177,17 +185,28 @@ const editPositionCart = (arrayCart) => {
                 });
             }
 
+            // item.querySelector(".modal-cart__action-count").innerHTML = arrayCart.count;
             // console.log(arrayCart);
             localStorage.setItem("cart", JSON.stringify(arrayCart));
 
+            arrayCart.forEach((item) => {
+                // console.log(`Цена: ${item.price} - Кол-во: ${item.count}`);
+                sumPrice += (item.price * item.count);
+            });
+
+            // console.log("сумма " + sumPrice);
+            sumHTMLspan.innerText = `${sumPrice} ₽`;
         });
 
         remove.addEventListener('click', () => {
+            sumPrice = 0;
+
             if (arrayCart.some((elem) => elem.name === itemHTML)) {
                 arrayCart.map((elem) => {
                     if (elem.name === itemHTML) {
                         elem.count--;
                         // console.log(`Убрал ${elem.name}`);
+                        item.querySelector(".modal-cart__action-count").innerHTML = elem.count;
                     }
 
                     // return elem;
@@ -197,39 +216,17 @@ const editPositionCart = (arrayCart) => {
             // console.log(arrayCart);
             localStorage.setItem("cart", JSON.stringify(arrayCart));
 
-        });
+            // sumPrice = 0;
+            arrayCart.forEach((item) => {
+                // console.log(`Цена: ${item.price} - Кол-во: ${item.count}`);
+                sumPrice += (item.price * item.count);
+            });
 
+            // console.log("сумма " + sumPrice);
+            sumHTMLspan.innerText = `${sumPrice} ₽`;
+        });
     });
 };
-
-const renderItemCart = (arrayItems, sum, cartItems) => {
-    arrayItems.forEach((item) => {
-        const div = document.createElement("div");
-
-        div.classList.add("modal-cart__item");
-
-        // реструктуризация
-        const {id, name, price, count} = item;
-
-        // console.log(`${name} ${price} ${count}`);
-
-        div.innerHTML = `
-                <div class="modal-cart__item-title">${name}</div>
-                <div class="modal-cart__item-price">${price} &#8381;</div>
-                <div class="modal-cart__action">
-                    <div class="modal-cart__action-remove">-</div>
-                    <div class="modal-cart__action-count">${count}</div>
-                    <div class="modal-cart__action-add">+</div>
-                </div>
-            `;
-
-        sum = sum + (+price * +count);
-
-        cartItems.append(div);
-    });
-
-    return {cartItems, sum};
-}
 
 // заполнение корзины
 const renderCart = () => {
@@ -251,32 +248,32 @@ const renderCart = () => {
 
         cartItems.append(div);
     } else {
-        // arrayItems.forEach((item) => {
-        //     const div = document.createElement("div");
-        //     div.classList.add("modal-cart__item");
-        //
-        //     // реструктуризация
-        //     const {id, name, price, count} = item;
-        //
-        //     // console.log(`${name} ${price} ${count}`);
-        //
-        //     div.innerHTML = `
-        //         <div class="modal-cart__item-title">${name}</div>
-        //         <div class="modal-cart__item-price">${price} &#8381;</div>
-        //         <div class="modal-cart__action">
-        //             <div class="modal-cart__action-remove">-</div>
-        //             <div class="modal-cart__action-count">${count}</div>
-        //             <div class="modal-cart__action-add">+</div>
-        //         </div>
-        //     `;
-        //
-        //     sum = sum + (+price * +count);
-        //
-        //     cartItems.append(div);
-        // });
+        arrayItems.forEach((item) => {
+            const div = document.createElement("div");
+            div.classList.add("modal-cart__item");
 
-        const returnFunc = renderItemCart(arrayItems, sum, cartItems);
-        editPositionCart(arrayItems);
+            // реструктуризация
+            const {id, name, price, count} = item;
+
+            // console.log(`${name} ${price} ${count}`);
+
+            div.innerHTML = `
+                <div class="modal-cart__item-title">${name}</div>
+                <div class="modal-cart__item-price">${price} ₽</div>
+                <div class="modal-cart__action">
+                    <div class="modal-cart__action-remove">-</div>
+                    <div class="modal-cart__action-count">${count}</div>
+                    <div class="modal-cart__action-add">+</div>
+                </div>
+            `;
+
+            sum = sum + (+price * +count);
+
+            cartItems.append(div);
+        });
+
+        // const returnFunc = renderItemCart(arrayItems, sum, cartItems);
+        // editPositionCart(arrayItems);
 
         // if(editPositionCart(arrayItems)) {
         //     console.log("true");
@@ -285,14 +282,14 @@ const renderCart = () => {
         // }
 
         item.innerHTML = `
-                <div class="modal-cart__bottom-sum">Сумма <span>${returnFunc.sum} &#8381;</span></div>
+                <div class="modal-cart__bottom-sum">Сумма <span>${sum} ₽</span></div>
                 <div class="modal-cart__bottom-del">Очистить корзину</div>
         `;
 
         cartContent.append(item);
     }
 
-    // editPositionCart(arrayItems);
+    editPositionCart(arrayItems);
 
     cleanCart();
 };
