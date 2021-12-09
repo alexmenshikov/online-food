@@ -1,59 +1,6 @@
 "use strict";
 
-// const burger = () => {
-//     const body = document.querySelector("body"); // body для блокировки прокрутки
-//     const userName = document.querySelector(".user-name"); // имя пользователя
-//     const logoutBtn = document.querySelector(".logout"); // кнопка выйти
-//     const burger = document.querySelector(".burger"); // кнопка бургера
-//     // const actionWrapper = document.querySelector(".action__wrapper"); // выпадающее меню
-//
-//     const flag = localStorage.getItem('user');
-//
-//     const menuAdaptive = () => {
-//
-//         // if (window.innerWidth >= 560) {
-//         // // if (window.screen.width >= 560) {
-//         //     if (flag) {
-//         //         userName.style.display = "flex";
-//         //         logoutBtn.style.display = "flex";
-//         //         burger.style.display = "none";
-//         //         // actionWrapper.style.display = "flex";
-//         //     } else {
-//         //         userName.style.display = "none";
-//         //         logoutBtn.style.display = "none";
-//         //         burger.style.display = "none";
-//         //         // actionWrapper.style.display = "flex";
-//         //     }
-//         // } else {
-//         //     if (flag) {
-//         //         userName.style.display = "none";
-//         //         logoutBtn.style.display = "none";
-//         //         burger.style.display = "none";
-//         //         // actionWrapper.style.display = "flex";
-//         //     } else {
-//         //         userName.style.display = "none";
-//         //         logoutBtn.style.display = "none";
-//         //         burger.style.display = "none";
-//         //         // actionWrapper.style.display = "flex";
-//         //     }
-//         // }
-//     }
-//
-//     menuAdaptive();
-//
-//     burger.addEventListener('click', () => {
-//         burger.classList.toggle("open");
-//         // actionWrapper.classList.toggle("open");
-//         userName.style.display = "flex";
-//         logoutBtn.style.display = "flex";
-//         body.classList.toggle("block");
-//     });
-//
-//     window.addEventListener('resize', (event) => {
-//         menuAdaptive();
-//     });
-// }
-
+// аутентефикация
 const auth = () => {
     const body = document.querySelector("body"); // body для блокировки прокрутки
     const loginBtn = document.querySelector(".login"); // кнопка войти
@@ -165,7 +112,6 @@ const auth = () => {
         login(JSON.parse(localStorage.getItem("user")));
     }
 };
-
 auth();
 
 // вывод числа заказов в корзине
@@ -177,7 +123,7 @@ const countingDish = () => {
 
     let sumCount = 0;
 
-    if(cart) {
+    if (cart) {
         cart.forEach((item) => {
             sumCount += Number(item.count);
         });
@@ -194,7 +140,7 @@ const cleanCart = () => {
 
     const delDishesBtn = document.querySelector(".modal-cart__bottom-del");
 
-    if(delDishesBtn) {
+    if (delDishesBtn) {
         delDishesBtn.addEventListener('click', () => {
             localStorage.removeItem('cart');
 
@@ -205,15 +151,85 @@ const cleanCart = () => {
             countingDish();
         });
     }
-
 };
 
+// увеличение и уменьшение товаров в корзине
 const editPositionCart = (arrayCart) => {
-    const add = document.querySelector(".modal-cart__action-add");
-    const remove = document.querySelector(".modal-cart__action-remove");
+    const cartItem = document.querySelectorAll(".modal-cart__item");
+    // const add = document.querySelector(".modal-cart__action-add");
+    // const remove = document.querySelector(".modal-cart__action-remove");
 
+    cartItem.forEach((item) => {
+        const add = item.querySelector(".modal-cart__action-add");
+        const remove = item.querySelector(".modal-cart__action-remove");
+        const itemHTML = item.querySelector(".modal-cart__item-title").innerText;
 
+        add.addEventListener('click', () => {
+            if (arrayCart.some((elem) => elem.name === itemHTML)) {
+                arrayCart.map((elem) => {
+                    if (elem.name === itemHTML) {
+                        elem.count++;
+                        // console.log(`Добавил ${elem.name}`);
+
+                    }
+
+                    // return elem;
+                });
+            }
+
+            // console.log(arrayCart);
+            localStorage.setItem("cart", JSON.stringify(arrayCart));
+
+        });
+
+        remove.addEventListener('click', () => {
+            if (arrayCart.some((elem) => elem.name === itemHTML)) {
+                arrayCart.map((elem) => {
+                    if (elem.name === itemHTML) {
+                        elem.count--;
+                        // console.log(`Убрал ${elem.name}`);
+                    }
+
+                    // return elem;
+                });
+            }
+
+            // console.log(arrayCart);
+            localStorage.setItem("cart", JSON.stringify(arrayCart));
+
+        });
+
+    });
 };
+
+const renderItemCart = (arrayItems, sum, cartItems) => {
+    arrayItems.forEach((item) => {
+        const div = document.createElement("div");
+
+        div.classList.add("modal-cart__item");
+
+        // реструктуризация
+        const {id, name, price, count} = item;
+
+        // console.log(`${name} ${price} ${count}`);
+
+        div.innerHTML = `
+                <div class="modal-cart__item-title">${name}</div>
+                <div class="modal-cart__item-price">${price} &#8381;</div>
+                <div class="modal-cart__action">
+                    <div class="modal-cart__action-remove">-</div>
+                    <div class="modal-cart__action-count">${count}</div>
+                    <div class="modal-cart__action-add">+</div>
+                </div>
+            `;
+
+        sum = sum + (+price * +count);
+
+        cartItems.append(div);
+    });
+
+    return {cartItems, sum};
+}
 
 // заполнение корзины
 const renderCart = () => {
@@ -228,54 +244,57 @@ const renderCart = () => {
     const item = document.createElement("div");
     item.classList.add("modal-cart__bottom-item");
 
-    if(!arrayItems) {
+    if (!arrayItems) {
         const div = document.createElement("div");
         div.classList.add("modal-cart__empty");
         div.innerText = "Ой, тут пока пусто";
 
         cartItems.append(div);
     } else {
-        arrayItems.forEach((item) => {
-            const div = document.createElement("div");
-            div.classList.add("modal-cart__item");
+        // arrayItems.forEach((item) => {
+        //     const div = document.createElement("div");
+        //     div.classList.add("modal-cart__item");
+        //
+        //     // реструктуризация
+        //     const {id, name, price, count} = item;
+        //
+        //     // console.log(`${name} ${price} ${count}`);
+        //
+        //     div.innerHTML = `
+        //         <div class="modal-cart__item-title">${name}</div>
+        //         <div class="modal-cart__item-price">${price} &#8381;</div>
+        //         <div class="modal-cart__action">
+        //             <div class="modal-cart__action-remove">-</div>
+        //             <div class="modal-cart__action-count">${count}</div>
+        //             <div class="modal-cart__action-add">+</div>
+        //         </div>
+        //     `;
+        //
+        //     sum = sum + (+price * +count);
+        //
+        //     cartItems.append(div);
+        // });
 
-            // реструктуризация
-            const {id, name, price, count} = item;
+        const returnFunc = renderItemCart(arrayItems, sum, cartItems);
+        editPositionCart(arrayItems);
 
-            console.log(`${name} ${price} ${count}`);
-
-            div.innerHTML = `
-                <div class="modal-cart__item-title">${name}</div>
-                <div class="modal-cart__item-price">${price} &#8381;</div>
-                <div class="modal-cart__action">
-                    <div class="modal-cart__action-remove">-</div>
-                    <div class="modal-cart__action-count">${count}</div>
-                    <div class="modal-cart__action-add">+</div>
-                </div>
-            `;
-
-            sum = sum + (+price * +count);
-
-            cartItems.append(div);
-        });
+        // if(editPositionCart(arrayItems)) {
+        //     console.log("true");
+        // } else {
+        //     console.log("false");
+        // }
 
         item.innerHTML = `
-                <div class="modal-cart__bottom-sum">Сумма <span>${sum} &#8381;</span></div>
+                <div class="modal-cart__bottom-sum">Сумма <span>${returnFunc.sum} &#8381;</span></div>
                 <div class="modal-cart__bottom-del">Очистить корзину</div>
         `;
 
         cartContent.append(item);
-
-        // delDishesBtn.addEventListener('click', () => {
-        //     // delDishes();
-        //     localStorage.removeItem('cart');
-        // });
     }
 
+    // editPositionCart(arrayItems);
+
     cleanCart();
-    // delDishesBtn.addEventListener('click', () => {
-    //     localStorage.removeItem('cart');
-    // });
 };
 
 // очистка корзины, при закрытии
@@ -322,47 +341,5 @@ const openCart = () => {
 
         removeCart();
     })
-
-
 };
 openCart();
-
-// const swiper = new Swiper('.swiper', {
-//     // Optional parameters
-//     // direction: 'vertical',
-//     loop: true,
-//
-//     autoplay: {
-//         delay: 2500,
-//         disableOnInteraction: false,
-//     },
-//
-//     grabCursor: true,
-//     effect: "creative",
-//     creativeEffect: {
-//         prev: {
-//             shadow: true,
-//             origin: "left center",
-//             translate: ["-5%", 0, -200],
-//             rotate: [0, 100, 0],
-//         },
-//         next: {
-//             origin: "right center",
-//             translate: ["5%", 0, -200],
-//             rotate: [0, -100, 0],
-//         },
-//     },
-//
-//     speed: 1000,
-//
-//     // Navigation arrows
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
-//
-//     // And if we need scrollbar
-//     scrollbar: {
-//         el: '.swiper-scrollbar',
-//     },
-// });
