@@ -27,7 +27,7 @@ const restaurants = () => {
                     </div>
                     <div class="restaurants__card-info">
                         <div class="restaurants__card-rating">${stars}</div>
-                        <div class="restaurants__card-price">От ${price} &#8381;</div>
+                        <div class="restaurants__card-price">От ${price} ₽</div>
                         <div class="restaurants__card-category">${kitchen}</div>
                     </div>
                 </div>

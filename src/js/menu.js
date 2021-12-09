@@ -15,10 +15,13 @@ const menu = () => {
 menu();
 
 // при создание массива, проверим есть ли массив в localStorage или нет, если да, мы его добавим в массив, если нет, просто создадим пустой массив.
-const cartArray = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+// const cartArray = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
 // добавление блюд в корзину
 const addCart = (cartItem) => {
+    // при создание массива, проверим есть ли массив в localStorage или нет, если да, мы его добавим в массив, если нет, просто создадим пустой массив.
+    const cartArray = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+
     if(cartArray.some((item) => item.id === cartItem.id)) {
         cartArray.map((item) => {
             if(item.id === cartItem.id) {
@@ -61,7 +64,7 @@ const dishes = () => {
                     <div class="food__card-description">${description}</div>
                     <div class="food__card-weight">${weight} г</div>
                     <div class="food__card-info">
-                        <div class="food__card-price">${price} &#8381;</div>
+                        <div class="food__card-price">${price} ₽</div>
                         <div class="food__card-cart">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                                 <path fill-rule="evenodd"

@@ -168,6 +168,7 @@ const auth = () => {
 
 auth();
 
+// вывод числа заказов в корзине
 const countingDish = () => {
     const cartCount = document.querySelector(".cart__count");
     const cartSpan = cartCount.querySelector("span");
@@ -186,13 +187,41 @@ const countingDish = () => {
 };
 countingDish();
 
+// очистка корзины
+const cleanCart = () => {
+    const body = document.querySelector("body");
+    const modalCart = document.querySelector(".modal-cart");
+
+    const delDishesBtn = document.querySelector(".modal-cart__bottom-del");
+
+    if(delDishesBtn) {
+        delDishesBtn.addEventListener('click', () => {
+            localStorage.removeItem('cart');
+
+            body.classList.remove("block");
+            modalCart.style.display = "none";
+
+            removeCart();
+            countingDish();
+        });
+    }
+
+};
+
+const editPositionCart = (arrayCart) => {
+    const add = document.querySelector(".modal-cart__action-add");
+    const remove = document.querySelector(".modal-cart__action-remove");
+
+
+};
+
 // заполнение корзины
 const renderCart = () => {
     const arrayItems = JSON.parse(localStorage.getItem("cart"));
     const cartItems = document.querySelector(".modal-cart__items");
     const cartContent = document.querySelector(".modal-cart__bottom");
 
-    const delDishesBtn = document.querySelector(".modal-cart__bottom-del");
+    // const delDishesBtn = document.querySelector(".modal-cart__bottom-del");
 
     let sum = 0;
 
@@ -236,10 +265,17 @@ const renderCart = () => {
         `;
 
         cartContent.append(item);
+
         // delDishesBtn.addEventListener('click', () => {
-        //     delDishes();
+        //     // delDishes();
+        //     localStorage.removeItem('cart');
         // });
     }
+
+    cleanCart();
+    // delDishesBtn.addEventListener('click', () => {
+    //     localStorage.removeItem('cart');
+    // });
 };
 
 // очистка корзины, при закрытии
