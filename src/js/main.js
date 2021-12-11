@@ -153,6 +153,21 @@ const cleanCart = () => {
     }
 };
 
+// очистка корзины
+const cleanCartNoDish = () => {
+    const body = document.querySelector("body");
+    const modalCart = document.querySelector(".modal-cart");
+
+    localStorage.removeItem('cart');
+
+    body.classList.remove("block");
+    modalCart.style.display = "none";
+
+    removeCart();
+    countingDish();
+    console.log("выполнили удаление");
+};
+
 // увеличение и уменьшение товаров в корзине
 const editPositionCart = (arrayCart) => {
     const cartItem = document.querySelectorAll(".modal-cart__item");
@@ -160,6 +175,9 @@ const editPositionCart = (arrayCart) => {
     // const remove = document.querySelector(".modal-cart__action-remove");
     const sumHTML = document.querySelector(".modal-cart__bottom-sum");
     const sumHTMLspan = sumHTML.querySelector("span");
+
+    const body = document.querySelector("body");
+    const modalCart = document.querySelector(".modal-cart");
     // console.log(sumHTMLspan);
 
     let sumPrice = 0;
@@ -180,8 +198,6 @@ const editPositionCart = (arrayCart) => {
                         item.querySelector(".modal-cart__action-count").innerHTML = elem.count;
 
                     }
-
-                    // return elem;
                 });
             }
 
@@ -196,6 +212,7 @@ const editPositionCart = (arrayCart) => {
 
             // console.log("сумма " + sumPrice);
             sumHTMLspan.innerText = `${sumPrice} ₽`;
+            countingDish();
         });
 
         remove.addEventListener('click', () => {
@@ -207,6 +224,81 @@ const editPositionCart = (arrayCart) => {
                         elem.count--;
                         // console.log(`Убрал ${elem.name}`);
                         item.querySelector(".modal-cart__action-count").innerHTML = elem.count;
+
+                        // console.log(elem.count);
+                        if (Number(elem.count) < 1) {
+                            // console.log("удалить");
+                            // console.log(arrayCart);
+                            // console.log("elem");
+                            // console.log(elem);
+                            if (arrayCart.some((arrayItem) => arrayItem.id === elem.id)) {
+                                arrayCart.map((arrayItem) => {
+                                    if (arrayItem.id === elem.id) {
+                                        // console.log(arrayItem);
+
+                                        // console.log("до");
+                                        // console.log(arrayCart);
+                                        // console.log(`elem.id - ${elem.id}`);
+
+                                        // delete arrayCart[`${arrayItem.id}`];
+
+
+                                        // let testAr = ['one', 'two', 'three'];
+                                        // let qw = "two"
+                                        // console.log(testAr);
+                                        // testAr.filter(f => f !== qw);
+                                        // console.log(testAr);
+
+                                        // удалили из массива
+                                        arrayCart = arrayCart.filter(f => {
+                                            // console.log(f.id);
+                                            return f.id !== elem.id;
+                                        });
+
+                                        // удаляем строку с блюдом из корзины
+                                        item.remove();
+
+                                        if (arrayCart.length === 0) {
+                                        // if(!arrayCart) {
+                                            // localStorage.removeItem("cart");
+                                            // delDishes();
+
+                                            // localStorage.removeItem('cart');
+
+                                            // console.log(localStorage.getItem('cart'));
+
+                                            // body.classList.remove("block");
+                                            // modalCart.style.display = "none";
+                                            //
+                                            // removeCart();
+                                            // countingDish();
+                                            cleanCartNoDish();
+
+                                            console.log("выполнили очистку");
+                                        }
+
+
+                                        // var myArray = ['one', 'two', 'three'];
+                                        // console.log(myArray);
+                                        // // нужно перезаписывать массив
+                                        // myArray = myArray.filter(function(f) { return f !== 'two' });
+                                        // console.log(myArray);
+
+
+                                        // let myIndex;
+                                        // arrayCart.forEach((i) => {
+                                        //     myIndex = i.indexOf(elem.id);
+                                        // });
+
+                                        // console.log(`Индекс - ${myIndex}`);
+
+                                        // console.log("после");
+                                        // console.log(arrayCart);
+                                    }
+                                });
+                            }
+                            ;
+                        }
                     }
 
                     // return elem;
@@ -214,16 +306,19 @@ const editPositionCart = (arrayCart) => {
             }
 
             // console.log(arrayCart);
-            localStorage.setItem("cart", JSON.stringify(arrayCart));
+            if (arrayCart.length !== 0) {
+                localStorage.setItem("cart", JSON.stringify(arrayCart));
 
-            // sumPrice = 0;
-            arrayCart.forEach((item) => {
-                // console.log(`Цена: ${item.price} - Кол-во: ${item.count}`);
-                sumPrice += (item.price * item.count);
-            });
+                // sumPrice = 0;
+                arrayCart.forEach((item) => {
+                    // console.log(`Цена: ${item.price} - Кол-во: ${item.count}`);
+                    sumPrice += (item.price * item.count);
+                });
 
-            // console.log("сумма " + sumPrice);
-            sumHTMLspan.innerText = `${sumPrice} ₽`;
+                // console.log("сумма " + sumPrice);
+                sumHTMLspan.innerText = `${sumPrice} ₽`;
+            }
+            countingDish();
         });
     });
 };
@@ -287,9 +382,8 @@ const renderCart = () => {
         `;
 
         cartContent.append(item);
+        editPositionCart(arrayItems);
     }
-
-    editPositionCart(arrayItems);
 
     cleanCart();
 };
@@ -301,17 +395,32 @@ const removeCart = () => {
 
     const cartBottom = document.querySelector(".modal-cart__bottom");
     cartBottom.innerHTML = ``;
+
+    console.log("зашли в полное удаление корзины");
 };
 
 // удаление блюд из корзины
+// const delDishes = () => {
+//
+//     const body = document.querySelector("body"); // body для блокировки прокрутки
+//     const modalCart = document.querySelector(".modal-cart");
+//
+//     localStorage.removeItem("cart");
+//
+//     body.classList.add("block");
+//     modalCart.style.display = "flex";
+//
+//     // removeCart();
+// };
 const delDishes = () => {
+
     const body = document.querySelector("body"); // body для блокировки прокрутки
     const modalCart = document.querySelector(".modal-cart");
 
     localStorage.removeItem("cart");
 
-    body.classList.add("block");
-    modalCart.style.display = "flex";
+    body.classList.remove("block");
+    modalCart.style.display = "none";
 
     // removeCart();
 };
